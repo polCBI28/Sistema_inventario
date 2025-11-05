@@ -23,7 +23,7 @@ class CategoriaControlle extends Controller
         $validator = Validator::make($request->all(),[
             'nombre' => 'required | string| max:255',
             'descripcion' => 'nullable|text',
-            'estado' => 'required',
+            
 
         ]);
 
@@ -33,7 +33,7 @@ class CategoriaControlle extends Controller
             Categoria::create([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
-                'estado' => $request->estado,
+                
             ]);
 
             return redirect()->route('admin.categoria.index')
@@ -49,7 +49,7 @@ class CategoriaControlle extends Controller
           $validator = Validator::make($request->all(),[
             'nombre' => 'required | string| max:255',
             'descripcion' => 'nullable|text',
-            'estado' => 'required',
+            
 
         ]);
 
@@ -60,7 +60,7 @@ class CategoriaControlle extends Controller
             Categoria::create([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
-                'estado' => $request->estado,
+                
             ]);
 
             return redirect()->route('admin.categoria.index')
