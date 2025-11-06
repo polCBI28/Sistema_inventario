@@ -91,38 +91,6 @@
                 @enderror
             </div>
 
-            <!-- Campo Estado -->
-            <div>
-                <label class="block text-sm font-medium text-zinc-300 mb-1">
-                    Estado <span class="text-red-500">*</span>
-                </label>
-                <div class="flex items-center gap-6">
-                    <label class="flex items-center cursor-pointer">
-                        <input 
-                            type="radio" 
-                            name="estado" 
-                            value="1" 
-                            {{ old('estado', '1') == '1' ? 'checked' : '' }}
-                            class="w-4 h-4 text-green-500 bg-zinc-800 border-zinc-700 focus:ring-blue-500"
-                        >
-                        <span class="ml-2 text-zinc-300">Activa</span>
-                    </label>
-                    <label class="flex items-center cursor-pointer">
-                        <input 
-                            type="radio" 
-                            name="estado" 
-                            value="0" 
-                            {{ old('estado') == '0' ? 'checked' : '' }}
-                            class="w-4 h-4 text-red-500 bg-zinc-800 border-zinc-700 focus:ring-blue-500"
-                        >
-                        <span class="ml-2 text-zinc-300">Inactiva</span>
-                    </label>
-                </div>
-                @error('estado')
-                    <p class="mt-1 text-sm text-red-500 font-medium">{{ $message }}</p>
-                @enderror
-            </div>
-
             <!-- Separador -->
             <div class="relative my-8">
                 <div class="absolute inset-0 flex items-center">

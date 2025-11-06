@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Ardmin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-use function Pest\Laravel\call;
-
-class CategoriaControlle extends Controller
+class CategoriaController extends Controller
 {
     public function index()
     {
@@ -21,8 +19,8 @@ class CategoriaControlle extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nombre' => 'required | string| max:255',
-            'descripcion' => 'nullable|text',
+            'nombre' => 'required',
+            'descripcion' => 'nullable',
 
 
         ]);
@@ -47,8 +45,8 @@ class CategoriaControlle extends Controller
     public function update(Request $request, string $id)
     {
         $validator = Validator::make($request->all(), [
-            'nombre' => 'required | string| max:255',
-            'descripcion' => 'nullable|text',
+            'nombre' => 'required',
+            'descripcion' => 'nullable',
 
 
         ]);

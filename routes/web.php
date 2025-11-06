@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Ardmin\CategoriaControlle;
-use App\Models\Categoria;
+use App\Http\Controllers\Admin\CategoriaController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -33,8 +32,9 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-Route::prefix('Admin')->group(function () {
-    Route::resource('categoria', CategoriaControlle::class)
+Route::prefix('admin')->group(function () {
+
+    Route::resource('categoria', CategoriaController::class)
         ->only(['index', 'store', 'update', 'destroy'])
         ->names('admin.categoria');
 });
