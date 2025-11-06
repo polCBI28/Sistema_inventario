@@ -33,8 +33,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::resource('producto', CategoriaControlle::class)
+Route::prefix('Admin')->group(function () {
+    Route::resource('categoria', CategoriaControlle::class)
         ->only(['index', 'store', 'update', 'destroy'])
         ->names('admin.categoria');
 });
