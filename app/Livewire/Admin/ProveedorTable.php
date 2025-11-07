@@ -13,6 +13,6 @@ class ProveedorTable extends Component
     public function render()
     {
         $proveedores = Proveedor::orderBy('created_at', 'desc')->paginate(10);
-        return view('livewire.admin.proveedor-table', compact('categorias'));
+        return view('livewire.admin.proveedor-table', compact('proveedores'));
     }
 }

@@ -58,7 +58,7 @@
                 Gestión de Proveedores
             </h1>
             
-            <a href="{{ route('admin.proveedor.create') }}" 
+            <a href="{{ route('admin.proveedor.index') }}" 
                class="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg shadow-blue-500/30">
                 <i class="fas fa-plus mr-2"></i>
                 Nuevo Proveedor
