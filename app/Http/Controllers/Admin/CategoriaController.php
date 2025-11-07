@@ -71,6 +71,6 @@ class CategoriaController extends Controller
     public function destroy(string $id)
     {
         Categoria::find($id)->delete();
-        return redirect()->route('admin.categoria.index')->with('success', 'La categoria fu eliminada correctamente.');
+        return redirect()->route('admin.categoria.index')->with('success', 'La categoria fue eliminada correctamente.');
     }
 }
