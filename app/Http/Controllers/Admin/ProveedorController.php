@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ProveedorController extends Controller
 {
@@ -38,8 +39,8 @@ class ProveedorController extends Controller
             ]);
             return redirect()->route('admin.proveedor.index')
                 ->with('success', 'El proveedor fue registrado correcto ');
-        } catch (ValidatorException $e) {
-            return back()->withErrors($e->validator->error())->withInput();
+        } catch (ValidationException $e) {
+            return back()->withErrors($e->validator->errors())->withInput();
         }
     }
     public function update(Request $request, string $id)
@@ -65,8 +66,8 @@ class ProveedorController extends Controller
             ]);
             return redirect()->route('admin.proveedor.index')
                 ->with('success', 'El proveedor fue actualizado correcto');
-        } catch (ValidatorException $e) {
-            return back()->withErrors($e->validator->error())->withInput();
+        } catch (ValidationException $e) {
+            return back()->withErrors($e->validator->errors())->withInput();
         }
     }
 

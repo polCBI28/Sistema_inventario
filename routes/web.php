@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\ProveedorController;
+use App\Models\Proveedor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -37,4 +39,11 @@ Route::prefix('admin')->group(function () {
     Route::resource('categoria', CategoriaController::class)
         ->only(['index', 'store', 'update', 'destroy'])
         ->names('admin.categoria');
+});
+
+Route::prefix('admin')->group(function(){
+    
+    Route::resource('proveedor',ProveedorController::class)
+        ->only(['index', 'store','update','destroy'])
+        ->names('admin.proveedor');
 });
