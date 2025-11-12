@@ -22,7 +22,20 @@ class ValidatorCatergoriaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => ['Require', 'string', 'max:255'],
+            'descripcion' => ['Require', 'string'],
+        ];
+    }
+    public function messages():array
+    {
+        return[
+            'nombre.required' => 'El nombre del producto es obligatorio.',
+            'nombre.string' => 'El nombre debe ser un texto .',
+            'nombre.required' => 'el nombre no debe exeder los 255 caracteres.',
+    
+            'descripcion' => 'El nombre del producto es obligatorio.', 
+    
+    
         ];
     }
 }
