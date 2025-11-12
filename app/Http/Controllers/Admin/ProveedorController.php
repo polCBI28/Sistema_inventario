@@ -74,7 +74,7 @@ class ProveedorController extends Controller
 
     public function destroy(string $id)
     {
-        Proveedor::find($id)->dalete();
+        Proveedor::find($id)->delete();
         return redirect()->route('admin.proveedor.index')->with('success','La catogoria fue eliminado correctamente.');
     }
 }
