@@ -21,17 +21,16 @@ class Producto extends Model
         'categoria_id',
         'proveedor_id'
     ];
-    
-protected $casts = [
-    'estado' => 'boolean',
-];
-public function categoria()
-{
-    return $this->belongsTo(Categoria::class,'categoria_id');
-}
-public function proveedor()
-{
-    return $this->belongsTo(Proveedor::class,'proveedor_id');
-}
-}
 
+    protected $casts = [
+        'estado' => 'boolean',
+    ];
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categoria_id');
+    }
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class, 'proveedor_id');
+    }
+}
