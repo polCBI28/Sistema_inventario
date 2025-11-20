@@ -12,7 +12,7 @@ class ProductoTable extends Component
 
     public function render()
     {
-        $products = Producto::orderBy('created_at', 'desc')->paginate(10);
-        return view('livewire.admin.producto-table', compact('products'));
+        $productos = Producto::orderBy('created_at', 'desc')->paginate(10);
+        return view('livewire.admin.producto-table', compact('productos'));
     }
 }

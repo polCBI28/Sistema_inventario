@@ -126,7 +126,7 @@
                             <option value="">-- Seleccionar proveedor --</option>
                             @foreach(\App\Models\Proveedor::all() as $proveedor)
                                 <option value="{{ $proveedor->id }}" {{ old('proveedor_id') == $proveedor->id ? 'selected' : '' }}>
-                                    {{ $proveedor->nombre }}
+                                    {{ $proveedor->razon_social }}
                                 </option>
                             @endforeach
                         </select>
