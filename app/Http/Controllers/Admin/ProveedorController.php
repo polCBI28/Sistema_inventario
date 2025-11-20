@@ -54,6 +54,7 @@ class ProveedorController extends Controller
         ]);
 
         try {
+            
             $validator->validate();
 
             Proveedor::create([
