@@ -17,7 +17,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::with(['categoria', 'proveedor'])->latest()->paginate(15);
+        $productos = Producto::with(['categoria', 'proveedors'])->latest()->paginate(15);
         return view('admin.producto.index', compact('productos'));
     }
 
@@ -27,9 +27,9 @@ class ProductoController extends Controller
     public function create()
     {
         $categorias  = Categoria::orderBy('nombre')->get();
-        $proveedores = Proveedor::orderBy('nombre')->get();
+        $proveedors = Proveedor::orderBy('nombre')->get();
 
-        return view('admin.producto.create', compact('categorias', 'proveedores'));
+        return view('admin.producto.create', compact('categorias', 'proveedors'));
     }
 
     /**
@@ -38,15 +38,15 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nombre'          => 'required|string|max:255|unique:productos,nombre',
-            'decripcion'      => 'nullable|string|max:1000',
-            'codigo_barras'  => 'nullable|string|max:100|unique:productos,codigo_barras',
+            'nombre'          => 'required|unique:productos,nombre',
+            'decripcion'      => 'nullable',
+            'codigo_barras'  => 'nullable|unique:productos,codigo_barras',
             'precio_compra'   => 'required|numeric|min:0',
             'stock'           => 'required|integer|min:0',
             'stock_minimo'    => 'required|integer|min:0',
             'estado'          => 'required|boolean',
-            'categoria_id'    => 'required|exists:categorias,id',
-            'proveedor_id'    => 'required|exists:proveedores,id',
+            'categoria_id'    => 'required',
+            'proveedor_id'    => 'required',
         ], [
             'nombre.unique'         => 'Ya existe un producto con ese nombre.',
             'codigo_barras.unique'  => 'El código de barras ya está registrado.',
@@ -83,9 +83,9 @@ class ProductoController extends Controller
     {
         $producto    = Producto::findOrFail($id);
         $categorias  = Categoria::orderBy('nombre')->get();
-        $proveedores = Proveedor::orderBy('nombre')->get();
+        $proveedors = Proveedor::orderBy('nombre')->get();
 
-        return view('admin.producto.edit', compact('producto', 'categorias', 'proveedores'));
+        return view('admin.producto.edit', compact('producto', 'categorias', 'proveedors'));
     }
 
     /**
